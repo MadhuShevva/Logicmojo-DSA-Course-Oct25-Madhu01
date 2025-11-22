@@ -1,0 +1,46 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'minPairSum' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER_ARRAY arr
+#
+
+def minPairSum(n, arr):
+    l=0
+    r=n-1
+    a=sorted(arr)
+    maxs=0
+    while l<r:
+        if a[l]+a[r]>=maxs:
+            maxs=a[l]+a[r]
+        l+=1
+        r-=1
+    return maxs
+
+        
+    
+    return maxs
+    # Write your code here
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = minPairSum(n, arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
