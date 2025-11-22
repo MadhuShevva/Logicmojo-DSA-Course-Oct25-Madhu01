@@ -1,54 +1,35 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
+#!/bin/python3
 
-class Result {
+import math
+import os
+import random
+import re
+import sys
 
-    /*
-     * Complete the 'sort_an_array' function below.
-     *
-     * The function is expected to return an INTEGER_ARRAY.
-     * The function accepts following parameters:
-     *  1. INTEGER n
-     *  2. INTEGER_ARRAY arr
-     */
+#
+# Complete the 'sort_an_array' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER_ARRAY arr
+#
 
-    public static List<Integer> sort_an_array(int n, List<Integer> arr) {
-    // Write your code here
+def sort_an_array(n, arr):
+    return sorted(arr)
 
-    }
+    # Write your code here
 
-}
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-public class Solution {
-    public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+    n = int(input().strip())
 
-        int n = Integer.parseInt(bufferedReader.readLine().trim());
+    arr = list(map(int, input().rstrip().split()))
 
-        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-            .map(Integer::parseInt)
-            .collect(toList());
+    result = sort_an_array(n, arr)
 
-        List<Integer> result = Result.sort_an_array(n, arr);
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
 
-        bufferedWriter.write(
-            result.stream()
-                .map(Object::toString)
-                .collect(joining(" "))
-            + "\n"
-        );
-
-        bufferedReader.close();
-        bufferedWriter.close();
-    }
-}
+    fptr.close()
